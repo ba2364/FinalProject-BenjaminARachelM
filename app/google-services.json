@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "33701620986",
+    "firebase_url": "https://finalproject-benjaminarachelm.firebaseio.com",
+    "project_id": "finalproject-benjaminarachelm",
+    "storage_bucket": "finalproject-benjaminarachelm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33701620986:android:bf6c4788ad491ca0",
+        "android_client_info": {
+          "package_name": "com.ba2364.finalproject_benjaminarachelm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33701620986-aatgamdckb4o7ds514900b86jeam2m8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ba2364.finalproject_benjaminarachelm",
+            "certificate_hash": "129d3a5774714432af462eedd03315cf282f01bb"
+          }
+        },
+        {
+          "client_id": "33701620986-8qn4kp0hodvfpqbfrtqkfv6u52tau7c6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDeAixnXYAIaMLqn1isuT_w7611a7ueGU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33701620986-8qn4kp0hodvfpqbfrtqkfv6u52tau7c6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

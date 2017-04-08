@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name" topic="app_name">Homework Helper</string>
+    <string name="topic" topic="topic">What is your topic?</string>
+    <string name="assignment" topic="assignment">What is the assignment?</string>
+    <string name="due" topic="due">When is it due?</string>
+    <string name="done" topic="done">Is it done yet?</string>
+    <string name="submit" topic="submit">Add Assignment</string>
+    <string name="welcome" topic="welcome">Welcome to Homework Helper!</string>
+    <string name="unprompt" topic="unpromt">Username</string>
+    <string name="pwpromt" topic="pwpromt">Password</string>
+    <string name="enter" topic="enter">Enter</string>
+    <string name="makeNew" topic="makeNew">New Student?</string>
+</resources>
