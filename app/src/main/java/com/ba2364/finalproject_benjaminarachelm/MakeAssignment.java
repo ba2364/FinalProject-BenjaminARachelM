@@ -103,8 +103,7 @@ public class MakeAssignment extends AppCompatActivity {
         userRef.push().setValue(userText);
     }
 
-    public void scheduleAssignment(View view)
-    {
+    public void scheduleAssignment(View view) {
         EditText titleField = (EditText) findViewById(R.id.title);
         String title = titleField.getText().toString();
 
@@ -114,26 +113,12 @@ public class MakeAssignment extends AppCompatActivity {
         Switch onlyTitle = (Switch) findViewById(R.id.finish);
         boolean noMessage = onlyTitle.isChecked();
 
-        if (noMessage)
-        {
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto: "));
-            intent.putExtra(Intent.EXTRA_SUBJECT, title);
-            if (intent.resolveActivity(getPackageManager()) != null)
-            {
-                startActivity(intent);
-            }
-        }
-        else
-        {
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto: "));
-            intent.putExtra(Intent.EXTRA_SUBJECT, title);
-            intent.putExtra(Intent.EXTRA_TEXT, message);
-            if (intent.resolveActivity(getPackageManager()) != null)
-            {
-                startActivity(intent);
-            }
+        Intent intent = new Intent(Intent.CATEGORY_APP_CALENDAR);
+        intent.setData(Uri.parse("mailto: "));
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 
