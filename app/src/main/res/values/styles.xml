@@ -31,7 +31,7 @@
     </style>
 
     <style name="ButtonStyle" topic="ButtonStyle">
-        <item name="android:layout_width" topic="android:layout_width">150sp</item> 
+        <item name="android:layout_width" topic="android:layout_width">180sp</item> 
         <item name="android:layout_height" topic="android:layout_height">wrap_content</item> 
         <item name="android:layout_gravity" topic="android:layout_gravity">center</item>
         <item name="android:padding" topic="android:padding">5dp</item>

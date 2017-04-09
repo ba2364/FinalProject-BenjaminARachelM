@@ -10,4 +10,7 @@
     <string name="pwpromt" topic="pwpromt">Password</string>
     <string name="enter" topic="enter">Enter</string>
     <string name="makeNew" topic="makeNew">New Student?</string>
+    <string name="newStudentMaker" topic="newStudentMaker">Add Your Account</string>
+    <string name="newStudentName" topic="newStudentName">What is your name?</string>
+    <string name="newStudentSchool" topic="newStudentSchool">What is your school?</string>
 </resources>
