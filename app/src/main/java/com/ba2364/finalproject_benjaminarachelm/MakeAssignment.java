@@ -3,6 +3,7 @@ package com.ba2364.finalproject_benjaminarachelm;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -120,6 +121,14 @@ public class MakeAssignment extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+
+        //Intent cal = new Intent(Intent.ACTION_EDIT);
+        //cal.setType("vnd.android.cursor.item/event");
+        //cal.putExtra(CalendarContract.Events.TITLE, strTitle);
+        //cal.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,startDateMillis);
+        //cal.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,endDateMillis);
+        //cal.putExtra(CalendarContract.Events.ALL_DAY, false);// periodicity
+        //cal.putExtra(CalendarContract.Events.DESCRIPTION,strDescription));
     }
 
     private void displayText() {
