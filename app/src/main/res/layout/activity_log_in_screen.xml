@@ -24,13 +24,15 @@
     <EditText
         android:id="@+id/pwordEnter"
         style="@style/EditWelcomeStyle"
-        android:hint="@string/pwpromt" />
+        android:layout_marginBottom="5dp"
+        android:hint="@string/pwpromt"/>
 
     <Button
         android:id="@+id/enterButton"
         style="@style/ButtonStyle"
+        android:layout_marginBottom="5dp"
         android:onClick="toUserManage"
-        android:text="@string/enter" />
+        android:text="@string/enter"/>
 
     <Button
         android:id="@+id/newUserButton"

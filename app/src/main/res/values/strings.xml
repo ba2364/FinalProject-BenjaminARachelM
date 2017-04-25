@@ -8,7 +8,7 @@
     <string name="welcome" topic="welcome">Welcome to Homework Helper!</string>
     <string name="unprompt" topic="unpromt">Username</string>
     <string name="pwpromt" topic="pwpromt">Password</string>
-    <string name="enter" topic="enter">Enter</string>
+    <string name="enter" topic="enter">Log In</string>
     <string name="makeNew" topic="makeNew">New Student?</string>
     <string name="newStudentMaker" topic="newStudentMaker">Add Your Account</string>
     <string name="newStudentName" topic="newStudentName">What is your name?</string>
