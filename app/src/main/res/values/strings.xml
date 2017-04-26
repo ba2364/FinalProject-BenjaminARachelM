@@ -13,4 +13,6 @@
     <string name="newStudentMaker" topic="newStudentMaker">Add Your Account</string>
     <string name="newStudentName" topic="newStudentName">What is your name?</string>
     <string name="newStudentSchool" topic="newStudentSchool">What is your school?</string>
+    <string name="addAssignmentToData">Add Assignment</string>
+    <string name="addAssignmentToCal">Add to Calendar</string>
 </resources>

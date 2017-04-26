@@ -12,12 +12,12 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/topic"
+            android:id="@+id/topic_box"
             style="@style/EditTextStyle"
             android:hint="@string/topic" />
 
         <EditText
-            android:id="@+id/assignment"
+            android:id="@+id/assignment_box"
             style="@style/EditTextStyle"
             android:hint="@string/assignment" />
 
@@ -39,13 +39,14 @@
                 android:textSize="20sp" />
 
             <DatePicker
+                android:id="@+id/date_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </DatePicker>
         </LinearLayout>
 
-        <Switch
-            android:id="@+id/finish"
+        <CheckBox
+            android:id="@+id/finished"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
