@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 
@@ -51,11 +49,20 @@ public class MakeAssignment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_assignment);
 
+        if (getIntent() != null)
+            assignmentObject = (Assignment) getIntent().getSerializableExtra(Keys.ASSIGNMENT);
+
         topic_box = (EditText) findViewById(R.id.topic_box);
         assignment_box = (EditText) findViewById(R.id.assignment_box);
         datePicker = (DatePicker) findViewById(R.id.date_picker);
         doneChecker = (CheckBox) findViewById(R.id.finished);
 
+        if (assignmentObject != null) {
+            topic_box.setText(assignmentObject.topic);
+            assignment_box.setText(assignmentObject.yourHomework);
+            datePicker.setMaxDate(assignmentObject.dueDate);
+            doneChecker.setChecked(assignmentObject.done);
+        }
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -119,11 +126,11 @@ public class MakeAssignment extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             //case R.id.make_menu_item_calendar:
-                //scheduleAssignment();
-                //return true;
+            //scheduleAssignment();
+            //return true;
             case R.id.make_menu_item_delete:
                 if (assignmentObject != null)
-                    assignmentRef.child(assignmentObject.getId()).removeValue();
+                    assignmentRef.child(assignmentObject.id).removeValue();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -143,31 +150,19 @@ public class MakeAssignment extends AppCompatActivity {
     }
 
     public void sendText(View view) {
-        FirebaseUser user = auth.getCurrentUser();
-        userRef = database.getReference(user.getUid());
-        String userText = userInput.getText().toString();
+        String id = UUID.randomUUID().toString();
+        String topicName = topic_box.getText().toString();
+        String assignmentName = assignment_box.getText().toString();
+        long dueDate = (datePicker.getMaxDate());
+        boolean isDone = doneChecker.isChecked();
+        assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
 
-        userRef.push().setValue(userText);
+        Intent intent = new Intent(this, MainUserScreen.class);
+        Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
     }
 
     public void scheduleAssignmentOnCalendar() {
-        EditText assignmentTitleField = (EditText) findViewById(R.id.title);
-        String title = assignmentTitleField.getText().toString();
-
-        EditText messageField = (EditText) findViewById(R.id.assignment);
-        String message = messageField.getText().toString();
-
-        Switch onlyTitle = (Switch) findViewById(R.id.finish);
-        boolean noMessage = onlyTitle.isChecked();
-
-        Intent intent = new Intent(Intent.CATEGORY_APP_CALENDAR);
-        intent.setData(Uri.parse("mailto: "));
-        intent.putExtra(Intent.EXTRA_SUBJECT, title);
-        intent.putExtra(Intent.EXTRA_TEXT, message);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-
         //Intent cal = new Intent(Intent.ACTION_EDIT);
         //cal.setType("vnd.android.cursor.item/event");
         //cal.putExtra(CalendarContract.Events.TITLE, strTitle);

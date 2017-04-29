@@ -15,4 +15,5 @@
     <string name="newStudentSchool" topic="newStudentSchool">What is your school?</string>
     <string name="addAssignmentToData">Add Assignment</string>
     <string name="addAssignmentToCal">Add to Calendar</string>
+    <string name="removeAssignment">Remove Assignment</string>
 </resources>
