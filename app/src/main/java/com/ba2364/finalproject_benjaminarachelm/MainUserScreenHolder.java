@@ -29,10 +29,10 @@ public class MainUserScreenHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(final Assignment assignment) {
-        assignmentNameText.setText(assignment.getTopic());
-        topicNameText.setText(assignment.getYourHomework());
-        dueDateText.setText("Due Date: " + assignment.getDueDate());
-        doneText.setText("Done: " + assignment.getDone());
+        assignmentNameText.setText(assignment.topic);
+        topicNameText.setText(assignment.yourHomework);
+        dueDateText.setText("Due Date: " + assignment.dueDate);
+        doneText.setText("Done: " + assignment.done);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
