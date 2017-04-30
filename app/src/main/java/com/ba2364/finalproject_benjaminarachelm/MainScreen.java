@@ -11,18 +11,16 @@ import android.view.MenuItem;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 public class MainScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AssignmentAdapter assignmentAdapter;
-
     private DatabaseReference assignmentReference = FirebaseDatabase.getInstance().getReference("assignment");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_user_screen);
+        setContentView(R.layout.activity_main_screen);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

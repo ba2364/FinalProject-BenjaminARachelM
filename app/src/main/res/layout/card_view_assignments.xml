@@ -5,16 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp" />
 
         <TextView
             android:id="@+id/topic_card_name"
@@ -24,17 +27,20 @@
         <TextView
             android:id="@+id/assignment_card_name"
             style="@style/CardTextViewStyle"
-            tools:text="assignment detail goes here" />
+            android:layout_below="@+id/topic_card_name"
+            tools:text="assignment detail goes here"/>
 
         <TextView
             android:id="@+id/duedate_card_name"
             style="@style/CardTextViewStyle"
-            tools:text="date goes here" />
+            android:layout_below="@+id/assignment_card_name"
+            tools:text="date goes here"/>
 
         <TextView
             android:id="@+id/done_card_name"
             style="@style/CardTextViewStyle"
-            tools:text="true or false" />
+            android:layout_below="@+id/duedate_card_name"
+            tools:text="true or false"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>
