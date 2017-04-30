@@ -6,7 +6,7 @@
     <string name="done" topic="done">Is it done yet?</string>
     <string name="submit" topic="submit">Add Assignment</string>
     <string name="welcome" topic="welcome">Welcome to Homework Helper!</string>
-    <string name="unprompt" topic="unpromt">Username</string>
+    <string name="unprompt" topic="unpromt">Email</string>
     <string name="pwpromt" topic="pwpromt">Password</string>
     <string name="enter" topic="enter">Log In</string>
     <string name="makeNew" topic="makeNew">New Student?</string>

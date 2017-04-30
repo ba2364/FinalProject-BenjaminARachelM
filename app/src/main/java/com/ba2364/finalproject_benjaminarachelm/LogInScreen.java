@@ -22,10 +22,10 @@ public class LogInScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in_screen);
+        setContentView(R.layout.logintemp);
 
-        emailBox = (EditText) findViewById(R.id.usernameEnter);
-        passwordBox = (EditText) findViewById(R.id.pwordEnter);
+        emailBox = (EditText) findViewById(R.id.emailPrompt);
+        passwordBox = (EditText) findViewById(R.id.passwordPrompt);
 
         mAuth = FirebaseAuth.getInstance();
     }

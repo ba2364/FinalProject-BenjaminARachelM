@@ -31,12 +31,12 @@
         android:id="@+id/enterButton"
         style="@style/ButtonStyle"
         android:layout_marginBottom="5dp"
-        android:onClick="toUserManage"
+        android:onClick="logIn"
         android:text="@string/enter"/>
 
     <Button
         android:id="@+id/newUserButton"
         style="@style/ButtonStyle"
-        android:onClick="toNewAssignment"
+        android:onClick="toNewStudent"
         android:text="@string/makeNew" />
 </LinearLayout>

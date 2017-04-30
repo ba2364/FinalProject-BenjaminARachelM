@@ -1,7 +1,6 @@
 package com.ba2364.finalproject_benjaminarachelm;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
@@ -121,7 +120,7 @@ public class MakeAssignment extends AppCompatActivity {
                 boolean isDone = doneChecker.isChecked();
                 assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
 
-                Intent intent = new Intent(this, MainUserScreen.class);
+                Intent intent = new Intent(this, MainScreen.class);
                 Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 return true;
@@ -157,7 +156,7 @@ public class MakeAssignment extends AppCompatActivity {
         boolean isDone = doneChecker.isChecked();
         assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
 
-        Intent intent = new Intent(this, MainUserScreen.class);
+        Intent intent = new Intent(this, MainScreen.class);
         Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }

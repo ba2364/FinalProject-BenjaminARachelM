@@ -11,12 +11,13 @@ import android.view.MenuItem;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MainUserScreen extends AppCompatActivity {
+
+public class MainScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private MainUserScreenAdapter mainUserScreenAdapter;
+    private AssignmentAdapter assignmentAdapter;
 
-    private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference("assignment");
+    private DatabaseReference assignmentReference = FirebaseDatabase.getInstance().getReference("assignment");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +27,15 @@ public class MainUserScreen extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mainUserScreenAdapter = new MainUserScreenAdapter(assignmentRef);
+        assignmentAdapter = new AssignmentAdapter(assignmentReference);
 
-        recyclerView.setAdapter(mainUserScreenAdapter);
+        recyclerView.setAdapter(assignmentAdapter);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mainUserScreenAdapter.cleanup();
+        assignmentAdapter.cleanup();
     }
 
 

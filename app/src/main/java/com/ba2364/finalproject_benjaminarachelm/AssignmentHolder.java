@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainUserScreenHolder extends RecyclerView.ViewHolder {
+public class AssignmentHolder extends RecyclerView.ViewHolder {
 
     private CardView cardView;
     private TextView assignmentNameText;
@@ -17,7 +17,7 @@ public class MainUserScreenHolder extends RecyclerView.ViewHolder {
     private TextView doneText;
     private Context context;
 
-    public MainUserScreenHolder(View itemView) {
+    public AssignmentHolder(View itemView) {
         super(itemView);
         cardView = (CardView) itemView.findViewById(R.id.card_view);
         assignmentNameText = (TextView) itemView.findViewById(R.id.topic_card_name);
