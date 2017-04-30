@@ -16,4 +16,5 @@
     <string name="addAssignmentToData">Add Assignment</string>
     <string name="addAssignmentToCal">Add to Calendar</string>
     <string name="removeAssignment">Remove Assignment</string>
+    <string name="assignmentDueString">Due: </string>
 </resources>

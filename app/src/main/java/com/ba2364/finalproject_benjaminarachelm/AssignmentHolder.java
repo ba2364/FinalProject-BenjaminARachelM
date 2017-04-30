@@ -31,12 +31,15 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
     public void bind(final Assignment assignment) {
         assignmentNameText.setText(assignment.topic);
         topicNameText.setText(assignment.yourHomework);
-        dueDateText.setText("Due Date: " + assignment.dueDate);
-        doneText.setText("Done: " + assignment.done);
+        dueDateText.setText("Due: " + assignment.dueDate);
+        if (assignment.done = true) {
+            doneText.setText("Done!");
+        } else if (assignment.done = false) {
+            doneText.setText("Not Done!");
+        }
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, assignmentNameText.getText(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, MakeAssignment.class);
                 intent.putExtra(Keys.ASSIGNMENT, assignment);
                 context.startActivity(intent);

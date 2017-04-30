@@ -30,4 +30,9 @@ public class Assignment implements Serializable {
                 ", done='" + done + '\'' +
                 '}';
     }
+
+    public String toDateString()
+    {
+        return "due date";
+    }
 }

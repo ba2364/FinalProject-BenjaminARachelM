@@ -15,7 +15,8 @@ public class MainScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AssignmentAdapter assignmentAdapter;
-    private DatabaseReference assignmentReference = FirebaseDatabase.getInstance().getReference("assignment");
+    private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference("assignment");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,10 @@ public class MainScreen extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        assignmentAdapter = new AssignmentAdapter(assignmentReference);
-
+        assignmentAdapter = new AssignmentAdapter(assignmentRef); // Stop listening if the activity is destroyed
         recyclerView.setAdapter(assignmentAdapter);
     }
+
 
     @Override
     protected void onDestroy() {
@@ -36,23 +37,25 @@ public class MainScreen extends AppCompatActivity {
         assignmentAdapter.cleanup();
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);//calling from my main menu object takes menu xml and inflates it
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.mainscreenadd:
                 Intent intent = new Intent(this, MakeAssignment.class);
                 startActivity(intent);
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 
         }
+
     }
 }
