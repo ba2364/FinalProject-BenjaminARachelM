@@ -19,14 +19,18 @@
     <EditText
         android:id="@+id/usernameEnter"
         style="@style/EditWelcomeStyle"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:hint="@string/unprompt"
         android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/pwordEnter"
         style="@style/EditWelcomeStyle"
+        android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:fontFamily="@string/app_name"
+        android:gravity="center"
         android:hint="@string/pwpromt"
         android:inputType="textPassword"/>
 
