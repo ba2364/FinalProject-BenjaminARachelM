@@ -2,6 +2,7 @@ package com.ba2364.finalproject_benjaminarachelm;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -33,9 +34,11 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
         topicNameText.setText(assignment.yourHomework);
         dueDateText.setText("Due: " + assignment.dateMonth + "/" + assignment.dateDay + "/" + assignment.dateYear);
         if (assignment.done) {
+            doneText.setTextColor(ContextCompat.getColor(context, R.color.doneColor));
             doneText.setText(R.string.isDone);
         }
         else {
+            doneText.setTextColor(ContextCompat.getColor(context, R.color.notDoneYetColor));
             doneText.setText(R.string.isNotDone);
         }
         cardView.setOnClickListener(new View.OnClickListener() {

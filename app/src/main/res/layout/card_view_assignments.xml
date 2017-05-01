@@ -22,7 +22,8 @@
         <TextView
             android:id="@+id/topic_card_name"
             style="@style/CardTextViewStyle"
-            tools:text="topic goes here" />
+            android:textAllCaps="true"
+            tools:text="topic goes here"/>
 
         <TextView
             android:id="@+id/assignment_card_name"

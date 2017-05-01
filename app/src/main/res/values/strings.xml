@@ -15,6 +15,6 @@
     <string name="removeAssignment">Remove</string>
     <string name="signOut">Sign Out</string>
     <string name="isDone">Done!</string>
-    <string name="isNotDone">Not Done Yet!</string>
+    <string name="isNotDone">NOT DONE YET!</string>
     <string name="dueText">Due </string>
 </resources>
