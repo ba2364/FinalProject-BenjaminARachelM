@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ayudante de Tareas</string>
+    <string name="assignment">¿Cuál es la tarea?</string>
+    <string name="done">¿Está completo?</string>
+    <string name="due">¿Cuando es debido?</string>
+    <string name="addAssignmentToData">Salvar</string>
+    <string name="addAssignmentToCal">Añadir al Calendario</string>
+    <string name="dueText">"Debido "</string>
+    <string name="enter">Iniciar</string>
+    <string name="isDone">¡Completo!</string>
+    <string name="isNotDone">¡INCOMPLETO!</string>
+    <string name="makeNew">Estudiante Nuevo</string>
+    <string name="pwpromt">Contraseña</string>
+    <string name="removeAssignment">Retirar</string>
+    <string name="signOut">Desconectar See</string>
+    <string name="submit">Agregar Asignación</string>
+    <string name="topic">¿Qué es el topico?</string>
+    <string name="unprompt">Email</string>
+    <string name="welcome">¡Bienvenido a Ayudante de Tareas!</string>
+</resources>
