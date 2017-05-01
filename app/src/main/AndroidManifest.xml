@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogInScreen" />
-        <activity android:name=".MakeAssignment"/>
+        <activity android:name=".MakeAssignment" />
+        <activity android:name=".ImageActivity" />
+        <activity android:name=".ImageUpload" />
     </application>
 
 </manifest>
