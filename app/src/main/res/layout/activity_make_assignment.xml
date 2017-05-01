@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:onClick="sendText"
+            android:onClick="sendAssignment"
             android:padding="16dp"
             android:text="@string/submit"
             android:textSize="16sp" />

@@ -112,24 +112,40 @@ public class MakeAssignment extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.make_menu_item_addToData:
-                String id = UUID.randomUUID().toString();
-                String topicName = topic_box.getText().toString();
-                String assignmentName = assignment_box.getText().toString();
-                long dueDate = (datePicker.getMaxDate());
-                boolean isDone = doneChecker.isChecked();
-                assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
+            case R.id.make_menu_item_Save:
+                if (assignmentObject == null) {
+                    String id = UUID.randomUUID().toString();
+                    String topicName = topic_box.getText().toString();
+                    String assignmentName = assignment_box.getText().toString();
+                    long dueDate = (datePicker.getMaxDate());
+                    boolean isDone = doneChecker.isChecked();
+                    assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
 
-                Intent intent = new Intent(this, MainScreen.class);
-                Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-                return true;
-            //case R.id.make_menu_item_calendar:
-            //scheduleAssignment();
-            //return true;
+                    Intent intent = new Intent(this, MainScreen.class);
+                    Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                    return true;
+                } else {
+                    assignmentObject.topic = topic_box.getText().toString();
+                    assignmentObject.yourHomework = assignment_box.getText().toString();
+                    assignmentObject.dueDate = (datePicker.getMaxDate());
+                    assignmentObject.done = doneChecker.isChecked();
+                    assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
+                    Intent intent2 = new Intent (this, MainScreen.class);
+                    Toast.makeText(this, "Assignment modified", Toast.LENGTH_SHORT).show();
+                    startActivity(intent2);
+                    return true;
+                }
+                //case R.id.make_menu_item_calendar:
+                //scheduleAssignment();
+                //return true;
             case R.id.make_menu_item_delete:
                 if (assignmentObject != null)
                     assignmentRef.child(assignmentObject.id).removeValue();
+                Intent intent5 = new Intent (this, MainScreen.class);
+                Toast.makeText(this, "Assignment removed", Toast.LENGTH_SHORT).show();
+                startActivity(intent5);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -148,17 +164,28 @@ public class MakeAssignment extends AppCompatActivity {
         auth.removeAuthStateListener(authListener);
     }
 
-    public void sendText(View view) {
-        String id = UUID.randomUUID().toString();
-        String topicName = topic_box.getText().toString();
-        String assignmentName = assignment_box.getText().toString();
-        long dueDate = (datePicker.getMaxDate());
-        boolean isDone = doneChecker.isChecked();
-        assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
+    public void sendAssignment(View view) {
+        if (assignmentObject == null) {
+            String id = UUID.randomUUID().toString();
+            String topicName = topic_box.getText().toString();
+            String assignmentName = assignment_box.getText().toString();
+            long dueDate = (datePicker.getMaxDate());
+            boolean isDone = doneChecker.isChecked();
+            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
 
-        Intent intent = new Intent(this, MainScreen.class);
-        Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
-        startActivity(intent);
+            Intent intent3 = new Intent(this, MainScreen.class);
+            Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
+            startActivity(intent3);
+        } else {
+            assignmentObject.topic = topic_box.getText().toString();
+            assignmentObject.yourHomework = assignment_box.getText().toString();
+            assignmentObject.dueDate = (datePicker.getMaxDate());
+            assignmentObject.done = doneChecker.isChecked();
+            assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
+            Intent intent4 = new Intent (this, MainScreen.class);
+            Toast.makeText(this, "Assignment modified", Toast.LENGTH_SHORT).show();
+            startActivity(intent4);
+        }
     }
 
     public void scheduleAssignmentOnCalendar() {

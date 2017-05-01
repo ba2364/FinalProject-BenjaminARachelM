@@ -37,7 +37,7 @@
         <Button
             android:id="@+id/sendButton"
             style="@style/ButtonStyle"
-            android:onClick="sendText"
+            android:onClick="sendAssignment"
             android:text="sent" />
 
         <Button
