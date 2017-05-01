@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LogInScreen" />
-        <activity android:name=".NewStudent" />
         <activity android:name=".MakeAssignment"/>
     </application>
 

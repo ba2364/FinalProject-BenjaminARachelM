@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/make_menu_item_Save"
+        android:id="@+id/maker_save"
         android:icon="@android:drawable/ic_menu_save"
         android:title="@string/addAssignmentToData"
         app:showAsAction="collapseActionView" />
 
     <item
-        android:id="@+id/make_menu_item_calendar"
-        android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="@string/addAssignmentToCal"
+        android:id="@+id/maker_delete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/removeAssignment"
         app:showAsAction="collapseActionView"/>
 
     <item
-        android:id="@+id/make_menu_item_delete"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="@string/removeAssignment"
+        android:id="@+id/maker_toCal"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="@string/addAssignmentToCal"
         app:showAsAction="collapseActionView"/>
 </menu>

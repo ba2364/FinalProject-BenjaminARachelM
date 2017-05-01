@@ -45,7 +45,7 @@ public class MakeAssignment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_assignment);
+        setContentView(R.layout.make_assignment);
 
         if (getIntent() != null)
             assignmentObject = (Assignment) getIntent().getSerializableExtra(Keys.ASSIGNMENT);
@@ -111,14 +111,18 @@ public class MakeAssignment extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.make_menu_item_Save:
+            case R.id.maker_save:
                 if (assignmentObject == null) {
                     String id = UUID.randomUUID().toString();
                     String topicName = topic_box.getText().toString();
                     String assignmentName = assignment_box.getText().toString();
                     long dueDate = (datePicker.getMaxDate());
+                    int dateDay = (datePicker.getDayOfMonth());
+                    int dateMonth = (datePicker.getMonth());
+                    int dateYear = (datePicker.getYear());
+
                     boolean isDone = doneChecker.isChecked();
-                    assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
+                    assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, dateDay, dateMonth, dateYear, isDone));
 
                     Intent intent = new Intent(this, MainScreen.class);
                     Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
@@ -128,6 +132,9 @@ public class MakeAssignment extends AppCompatActivity {
                     assignmentObject.topic = topic_box.getText().toString();
                     assignmentObject.yourHomework = assignment_box.getText().toString();
                     assignmentObject.dueDate = (datePicker.getMaxDate());
+                    assignmentObject.dateDay = (datePicker.getDayOfMonth());
+                    assignmentObject.dateMonth = (datePicker.getMonth());
+                    assignmentObject.dateYear = (datePicker.getYear());
                     assignmentObject.done = doneChecker.isChecked();
                     assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
                     Intent intent2 = new Intent (this, MainScreen.class);
@@ -138,7 +145,7 @@ public class MakeAssignment extends AppCompatActivity {
                 //case R.id.make_menu_item_calendar:
                 //scheduleAssignment();
                 //return true;
-            case R.id.make_menu_item_delete:
+            case R.id.maker_delete:
                 if (assignmentObject != null)
                     assignmentRef.child(assignmentObject.id).removeValue();
                 Intent intent5 = new Intent (this, MainScreen.class);
@@ -169,8 +176,11 @@ public class MakeAssignment extends AppCompatActivity {
             String topicName = topic_box.getText().toString();
             String assignmentName = assignment_box.getText().toString();
             long dueDate = (datePicker.getMaxDate());
+            int dateDay = (datePicker.getDayOfMonth());
+            int dateMonth = (datePicker.getMonth());
+            int dateYear = (datePicker.getYear());
             boolean isDone = doneChecker.isChecked();
-            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, isDone));
+            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, dateDay, dateMonth, dateYear, isDone));
 
             Intent intent3 = new Intent(this, MainScreen.class);
             Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
@@ -179,6 +189,9 @@ public class MakeAssignment extends AppCompatActivity {
             assignmentObject.topic = topic_box.getText().toString();
             assignmentObject.yourHomework = assignment_box.getText().toString();
             assignmentObject.dueDate = (datePicker.getMaxDate());
+            assignmentObject.dateDay = (datePicker.getDayOfMonth());
+            assignmentObject.dateMonth = (datePicker.getMonth());
+            assignmentObject.dateYear = (datePicker.getYear());
             assignmentObject.done = doneChecker.isChecked();
             assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
             Intent intent4 = new Intent (this, MainScreen.class);

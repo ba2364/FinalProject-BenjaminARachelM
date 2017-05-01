@@ -31,8 +31,13 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
     public void bind(final Assignment assignment) {
         assignmentNameText.setText(assignment.topic);
         topicNameText.setText(assignment.yourHomework);
-        dueDateText.setText("Due: " + assignment.dueDate);
-        doneText.setText("Done : " + assignment.done);
+        dueDateText.setText("Due: " + assignment.dateMonth + "/" + assignment.dateDay + "/" + assignment.dateYear);
+        if (assignment.done) {
+            doneText.setText(R.string.isDone);
+        }
+        else {
+            doneText.setText(R.string.isNotDone);
+        }
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

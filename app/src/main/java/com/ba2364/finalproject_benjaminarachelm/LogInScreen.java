@@ -14,25 +14,25 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LogInScreen extends AppCompatActivity {
 
-    private EditText emailBox;
-    private EditText passwordBox;
+    private EditText usernameEnter;
+    private EditText pwordEnter;
 
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logintemp);
+        setContentView(R.layout.log_in);
 
-        emailBox = (EditText) findViewById(R.id.emailPrompt);
-        passwordBox = (EditText) findViewById(R.id.passwordPrompt);
+        usernameEnter = (EditText) findViewById(R.id.usernameEnter);
+        pwordEnter = (EditText) findViewById(R.id.pwordEnter);
 
         mAuth = FirebaseAuth.getInstance();
     }
 
     public void logIn(View view) {
-        String email = emailBox.getText().toString();
-        String password = passwordBox.getText().toString();
+        String email = usernameEnter.getText().toString();
+        String password = pwordEnter.getText().toString();
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -51,8 +51,8 @@ public class LogInScreen extends AppCompatActivity {
     }
 
     public void signUp(View view) {
-        String email = emailBox.getText().toString();
-        String password = passwordBox.getText().toString();
+        String email = usernameEnter.getText().toString();
+        String password = pwordEnter.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

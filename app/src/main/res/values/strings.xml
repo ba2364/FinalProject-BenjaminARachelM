@@ -9,12 +9,12 @@
     <string name="unprompt" topic="unpromt">Email</string>
     <string name="pwpromt" topic="pwpromt">Password</string>
     <string name="enter" topic="enter">Log In</string>
-    <string name="makeNew" topic="makeNew">New Student?</string>
-    <string name="newStudentMaker" topic="newStudentMaker">Add Your Account</string>
-    <string name="newStudentName" topic="newStudentName">What is your name?</string>
-    <string name="newStudentSchool" topic="newStudentSchool">What is your school?</string>
+    <string name="makeNew" topic="makeNew">New Student</string>
     <string name="addAssignmentToData">Save</string>
     <string name="addAssignmentToCal">Add to Calendar</string>
     <string name="removeAssignment">Remove</string>
     <string name="signOut">Sign Out</string>
+    <string name="isDone">Done!</string>
+    <string name="isNotDone">Not Done Yet!</string>
+    <string name="dueText">Due </string>
 </resources>

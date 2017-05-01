@@ -19,13 +19,16 @@
     <EditText
         android:id="@+id/usernameEnter"
         style="@style/EditWelcomeStyle"
-        android:hint="@string/unprompt" />
+        android:hint="@string/unprompt"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/pwordEnter"
         style="@style/EditWelcomeStyle"
         android:layout_marginBottom="5dp"
-        android:hint="@string/pwpromt"/>
+        android:fontFamily="@string/app_name"
+        android:hint="@string/pwpromt"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/enterButton"
@@ -37,6 +40,6 @@
     <Button
         android:id="@+id/newUserButton"
         style="@style/ButtonStyle"
-        android:onClick="toNewStudent"
+        android:onClick="signUp"
         android:text="@string/makeNew" />
 </LinearLayout>
