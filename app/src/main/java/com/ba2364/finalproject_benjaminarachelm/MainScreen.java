@@ -76,17 +76,31 @@ public class MainScreen extends AppCompatActivity {
                         }
                     });
                 }
-
             }
         };
-
-
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        auth.removeAuthStateListener(authListener);
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        assignmentAdapter.cleanup();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
         assignmentAdapter.cleanup();
     }
 
