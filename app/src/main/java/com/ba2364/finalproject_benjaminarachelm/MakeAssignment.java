@@ -61,46 +61,7 @@ public class MakeAssignment extends AppCompatActivity {
             datePicker.setMaxDate(assignmentObject.dueDate);
             doneChecker.setChecked(assignmentObject.done);
         }
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                if (user == null) {
-                    startActivity(new Intent(MakeAssignment.this, LogInScreen.class));
-                } else {
-                    userRef = database.getReference(user.getUid());
-                    userRef.addChildEventListener(new ChildEventListener() {
-                        @Override
-                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                            messageList.add(dataSnapshot.getValue(String.class));
-                        }
-
-                        @Override
-                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                            Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(String.class) + " has changed", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onChildRemoved(DataSnapshot dataSnapshot) {
-                            Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(String.class) + " is removed", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
-                }
-
-            }
-        };
-
-
-    }
+  }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
