@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -16,6 +18,9 @@ public class MainScreen extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AssignmentAdapter assignmentAdapter;
     private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference("assignment");
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    private FirebaseAuth.AuthStateListener authListener;
 
 
     @Override
@@ -51,7 +56,12 @@ public class MainScreen extends AppCompatActivity {
                 Intent intent = new Intent(this, MakeAssignment.class);
                 startActivity(intent);
                 return true;
-
+            case R.id.signOutButton:
+                auth.signOut();
+                auth.removeAuthStateListener(authListener);
+                Intent out = new Intent(this, LogInScreen.class);
+                startActivity(out);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

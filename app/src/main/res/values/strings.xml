@@ -16,4 +16,5 @@
     <string name="addAssignmentToData">Save</string>
     <string name="addAssignmentToCal">Add to Calendar</string>
     <string name="removeAssignment">Remove</string>
+    <string name="signOut">Sign Out</string>
 </resources>

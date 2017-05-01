@@ -42,7 +42,6 @@ public class MakeAssignment extends AppCompatActivity {
     private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference("assignment");
     private Assignment assignmentObject;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -198,7 +197,7 @@ public class MakeAssignment extends AppCompatActivity {
         //cal.putExtra(CalendarContract.Events.DESCRIPTION,strDescription));
     }
 
-    public void addEvent(String title, String location, long begin, long end) {
+    public void addCalendarEvent(String title, String location, long begin, long end) {
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.Events.TITLE, title)
@@ -208,13 +207,5 @@ public class MakeAssignment extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-    }
-
-
-    public void signOut(View view) {
-        auth.signOut();
-        messageList.clear();
-        displayText.setText("");
-        userInput.setText("");
     }
 }
