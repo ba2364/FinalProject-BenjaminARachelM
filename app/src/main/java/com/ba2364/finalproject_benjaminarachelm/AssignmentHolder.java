@@ -36,8 +36,7 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
         if (assignment.done) {
             doneText.setTextColor(ContextCompat.getColor(context, R.color.doneColor));
             doneText.setText(R.string.isDone);
-        }
-        else {
+        } else {
             doneText.setTextColor(ContextCompat.getColor(context, R.color.notDoneYetColor));
             doneText.setText(R.string.isNotDone);
         }
