@@ -133,6 +133,9 @@ public class MakeAssignment extends AppCompatActivity {
                     assignmentObject.dateDay = (datePicker.getDayOfMonth());
                     assignmentObject.dateMonth = (datePicker.getMonth() + 1);
                     assignmentObject.dateYear = (datePicker.getYear());
+                    Date date2 = new Date(assignmentObject.dateYear, assignmentObject.dateMonth, assignmentObject.dateDay);
+                    SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+                    assignmentObject.id = formatter.format(date2);
                     assignmentObject.done = doneChecker.isChecked();
                     assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
                     Intent intent2 = new Intent(this, MainScreen.class);
@@ -172,17 +175,16 @@ public class MakeAssignment extends AppCompatActivity {
         if (assignmentObject == null) {
             String topicName = topic_box.getText().toString();
             String assignmentName = assignment_box.getText().toString();
-            long dueDate = (datePicker.getMaxDate());
             int dateDay = (datePicker.getDayOfMonth());
             int dateMonth = (datePicker.getMonth() + 1);
             int dateYear = (datePicker.getYear());
 
             boolean isDone = doneChecker.isChecked();
-            Date date = new Date(dateYear, dateMonth, dateDay);
+            Date date3 = new Date(dateYear, dateMonth, dateDay);
             SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
-            String id = formatter.format(date);
+            String id = formatter.format(date3);
 
-            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, date, dateDay, dateMonth, dateYear, isDone));
+            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, date3, dateDay, dateMonth, dateYear, isDone));
 
             Intent intent3 = new Intent(this, MainScreen.class);
             Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
@@ -193,6 +195,9 @@ public class MakeAssignment extends AppCompatActivity {
             assignmentObject.dateDay = (datePicker.getDayOfMonth());
             assignmentObject.dateMonth = (datePicker.getMonth() + 1);
             assignmentObject.dateYear = (datePicker.getYear());
+            Date date4 = new Date(assignmentObject.dateYear, assignmentObject.dateMonth, assignmentObject.dateDay);
+            SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+            assignmentObject.id = formatter.format(date4);
             assignmentObject.done = doneChecker.isChecked();
             assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
             Intent intent4 = new Intent(this, MainScreen.class);
