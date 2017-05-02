@@ -28,8 +28,6 @@ import java.util.UUID;
 
 public class MakeAssignment extends AppCompatActivity {
 
-    TextView userInput;
-    TextView displayText;
     private ArrayList<String> messageList = new ArrayList<>();
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -98,8 +96,6 @@ public class MakeAssignment extends AppCompatActivity {
 
             }
         };
-
-
     }
 
     @Override
@@ -122,7 +118,7 @@ public class MakeAssignment extends AppCompatActivity {
                     int dateYear = (datePicker.getYear());
 
                     boolean isDone = doneChecker.isChecked();
-                    assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, dateDay, dateMonth, dateYear, isDone));
+                    assignmentRef.child(String.valueOf(dueDate)).setValue(new Assignment(id, topicName, assignmentName, dueDate, dateDay, dateMonth, dateYear, isDone));
 
                     Intent intent = new Intent(this, MainScreen.class);
                     Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
@@ -137,7 +133,7 @@ public class MakeAssignment extends AppCompatActivity {
                     assignmentObject.dateYear = (datePicker.getYear());
                     assignmentObject.done = doneChecker.isChecked();
                     assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
-                    Intent intent2 = new Intent (this, MainScreen.class);
+                    Intent intent2 = new Intent(this, MainScreen.class);
                     Toast.makeText(this, "Assignment modified", Toast.LENGTH_SHORT).show();
                     startActivity(intent2);
                     return true;
@@ -148,7 +144,7 @@ public class MakeAssignment extends AppCompatActivity {
             case R.id.maker_delete:
                 if (assignmentObject != null)
                     assignmentRef.child(assignmentObject.id).removeValue();
-                Intent intent5 = new Intent (this, MainScreen.class);
+                Intent intent5 = new Intent(this, MainScreen.class);
                 Toast.makeText(this, "Assignment removed", Toast.LENGTH_SHORT).show();
                 startActivity(intent5);
                 return true;
@@ -194,7 +190,7 @@ public class MakeAssignment extends AppCompatActivity {
             assignmentObject.dateYear = (datePicker.getYear());
             assignmentObject.done = doneChecker.isChecked();
             assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
-            Intent intent4 = new Intent (this, MainScreen.class);
+            Intent intent4 = new Intent(this, MainScreen.class);
             Toast.makeText(this, "Assignment modified", Toast.LENGTH_SHORT).show();
             startActivity(intent4);
         }

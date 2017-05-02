@@ -32,7 +32,8 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
     public void bind(final Assignment assignment) {
         assignmentNameText.setText(assignment.topic);
         topicNameText.setText(assignment.yourHomework);
-        dueDateText.setText("Due: " + assignment.dateMonth + "/" + assignment.dateDay + "/" + assignment.dateYear);
+
+        dueDateText.setText(context.getString(R.string.dueText) + " " +assignment.dateMonth + "/" + assignment.dateDay + "/" + assignment.dateYear);
         if (assignment.done) {
             doneText.setTextColor(ContextCompat.getColor(context, R.color.doneColor));
             doneText.setText(R.string.isDone);

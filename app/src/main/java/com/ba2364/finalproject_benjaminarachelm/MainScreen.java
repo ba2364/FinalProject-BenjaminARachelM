@@ -34,7 +34,6 @@ public class MainScreen extends AppCompatActivity {
         recyclerView.setAdapter(assignmentAdapter);
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
