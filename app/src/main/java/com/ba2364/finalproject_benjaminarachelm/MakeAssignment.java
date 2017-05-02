@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,7 +21,9 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -56,7 +57,6 @@ public class MakeAssignment extends AppCompatActivity {
         if (assignmentObject != null) {
             topic_box.setText(assignmentObject.topic);
             assignment_box.setText(assignmentObject.yourHomework);
-            datePicker.setMaxDate(assignmentObject.dueDate);
             doneChecker.setChecked(assignmentObject.done);
         }
         authListener = new FirebaseAuth.AuthStateListener() {
@@ -109,16 +109,19 @@ public class MakeAssignment extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.maker_save:
                 if (assignmentObject == null) {
-                    String id = UUID.randomUUID().toString();
                     String topicName = topic_box.getText().toString();
                     String assignmentName = assignment_box.getText().toString();
                     long dueDate = (datePicker.getMaxDate());
                     int dateDay = (datePicker.getDayOfMonth());
-                    int dateMonth = (datePicker.getMonth());
+                    int dateMonth = (datePicker.getMonth() + 1);
                     int dateYear = (datePicker.getYear());
 
                     boolean isDone = doneChecker.isChecked();
-                    assignmentRef.child(String.valueOf(dueDate)).setValue(new Assignment(id, topicName, assignmentName, dueDate, dateDay, dateMonth, dateYear, isDone));
+                    Date date = new Date(dateYear, dateMonth, dateDay);
+                    SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+                    String id = formatter.format(date);
+
+                    assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, date, dateDay, dateMonth, dateYear, isDone));
 
                     Intent intent = new Intent(this, MainScreen.class);
                     Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
@@ -127,9 +130,8 @@ public class MakeAssignment extends AppCompatActivity {
                 } else {
                     assignmentObject.topic = topic_box.getText().toString();
                     assignmentObject.yourHomework = assignment_box.getText().toString();
-                    assignmentObject.dueDate = (datePicker.getMaxDate());
                     assignmentObject.dateDay = (datePicker.getDayOfMonth());
-                    assignmentObject.dateMonth = (datePicker.getMonth());
+                    assignmentObject.dateMonth = (datePicker.getMonth() + 1);
                     assignmentObject.dateYear = (datePicker.getYear());
                     assignmentObject.done = doneChecker.isChecked();
                     assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
@@ -168,15 +170,19 @@ public class MakeAssignment extends AppCompatActivity {
 
     public void sendAssignment(View view) {
         if (assignmentObject == null) {
-            String id = UUID.randomUUID().toString();
             String topicName = topic_box.getText().toString();
             String assignmentName = assignment_box.getText().toString();
             long dueDate = (datePicker.getMaxDate());
             int dateDay = (datePicker.getDayOfMonth());
-            int dateMonth = (datePicker.getMonth());
+            int dateMonth = (datePicker.getMonth() + 1);
             int dateYear = (datePicker.getYear());
+
             boolean isDone = doneChecker.isChecked();
-            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, dueDate, dateDay, dateMonth, dateYear, isDone));
+            Date date = new Date(dateYear, dateMonth, dateDay);
+            SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+            String id = formatter.format(date);
+
+            assignmentRef.child(id).setValue(new Assignment(id, topicName, assignmentName, date, dateDay, dateMonth, dateYear, isDone));
 
             Intent intent3 = new Intent(this, MainScreen.class);
             Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
@@ -184,9 +190,8 @@ public class MakeAssignment extends AppCompatActivity {
         } else {
             assignmentObject.topic = topic_box.getText().toString();
             assignmentObject.yourHomework = assignment_box.getText().toString();
-            assignmentObject.dueDate = (datePicker.getMaxDate());
             assignmentObject.dateDay = (datePicker.getDayOfMonth());
-            assignmentObject.dateMonth = (datePicker.getMonth());
+            assignmentObject.dateMonth = (datePicker.getMonth() + 1);
             assignmentObject.dateYear = (datePicker.getYear());
             assignmentObject.done = doneChecker.isChecked();
             assignmentRef.child(assignmentObject.id).setValue(assignmentObject);
