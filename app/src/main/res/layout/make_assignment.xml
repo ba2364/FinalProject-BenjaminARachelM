@@ -14,13 +14,13 @@
         <EditText
             android:id="@+id/topic_box"
             style="@style/EditTextStyle"
-            android:hint="@string/topic"
+            android:hint="Enter Subject (ex. Science)"
             android:inputType="text"/>
 
         <EditText
             android:id="@+id/assignment_box"
             style="@style/EditTextStyle"
-            android:hint="@string/assignment"
+            android:hint="Enter Assignment"
             android:inputType="text"/>
 
         <LinearLayout
