@@ -17,4 +17,6 @@
     <string name="isDone">Done!</string>
     <string name="isNotDone">NOT DONE YET!</string>
     <string name="dueText">Due</string>
+    <string name="enterSubject">Enter Subject (ex. Science)</string>
+    <string name="enterAssign">Enter Assignment</string>
 </resources>

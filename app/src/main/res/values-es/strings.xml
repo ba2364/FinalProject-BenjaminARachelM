@@ -18,4 +18,6 @@
     <string name="topic">¿Qué es el topico?</string>
     <string name="unprompt">Email</string>
     <string name="welcome">¡Bienvenido a Ayudante de Tareas!</string>
+    <string name="enterAssign">Agregar Asignación</string>
+    <string name="enterSubject">Agregar El Tema</string>
 </resources>
