@@ -14,9 +14,4 @@
         android:title="@string/removeAssignment"
         app:showAsAction="collapseActionView"/>
 
-    <item
-        android:id="@+id/maker_toCal"
-        android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="@string/addAssignmentToCal"
-        app:showAsAction="collapseActionView"/>
 </menu>
