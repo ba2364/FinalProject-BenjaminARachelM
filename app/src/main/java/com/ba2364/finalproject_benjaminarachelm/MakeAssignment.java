@@ -80,7 +80,7 @@ public class MakeAssignment extends AppCompatActivity {
 
                         @Override
                         public void onChildRemoved(DataSnapshot dataSnapshot) {
-                            Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(Assignment.class) + " is removed", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(Assignment.class) + " is removed", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
@@ -110,7 +110,6 @@ public class MakeAssignment extends AppCompatActivity {
                 if (assignmentObject == null) {
                     String topicName = topic_box.getText().toString();
                     String assignmentName = assignment_box.getText().toString();
-                    long dueDate = (datePicker.getMaxDate());
                     int dateDay = (datePicker.getDayOfMonth());
                     int dateMonth = (datePicker.getMonth() + 1);
                     int dateYear = (datePicker.getYear());
@@ -127,6 +126,7 @@ public class MakeAssignment extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 } else {
+                    assignmentRef.child(assignmentObject.id).removeValue();  //NEW
                     assignmentObject.topic = topic_box.getText().toString();
                     assignmentObject.yourHomework = assignment_box.getText().toString();
                     assignmentObject.dateDay = (datePicker.getDayOfMonth());
@@ -189,6 +189,7 @@ public class MakeAssignment extends AppCompatActivity {
             Toast.makeText(this, "Assignment added", Toast.LENGTH_SHORT).show();
             startActivity(intent3);
         } else {
+            assignmentRef.child(assignmentObject.id).removeValue(); //NEW
             assignmentObject.topic = topic_box.getText().toString();
             assignmentObject.yourHomework = assignment_box.getText().toString();
             assignmentObject.dateDay = (datePicker.getDayOfMonth());
