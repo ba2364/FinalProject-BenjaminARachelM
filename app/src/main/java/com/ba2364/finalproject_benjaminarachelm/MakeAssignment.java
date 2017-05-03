@@ -15,21 +15,20 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
 
 
 public class MakeAssignment extends AppCompatActivity {
 
-    private ArrayList<String> messageList = new ArrayList<>();
+    private ArrayList<Assignment> messageList = new ArrayList<>();
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener authListener;
@@ -38,7 +37,7 @@ public class MakeAssignment extends AppCompatActivity {
     private EditText assignment_box;
     private DatePicker datePicker;
     private CheckBox doneChecker;
-    private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference("assignment");
+    private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference(auth.getCurrentUser().getUid() + "/assignment");
     private Assignment assignmentObject;
 
     @Override
@@ -71,17 +70,17 @@ public class MakeAssignment extends AppCompatActivity {
                     userRef.addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                            messageList.add(dataSnapshot.getValue(String.class));
+                            messageList.add(dataSnapshot.getValue(Assignment.class));
                         }
 
                         @Override
                         public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                            Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(String.class) + " has changed", Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(Assignment.class) + " has changed", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void onChildRemoved(DataSnapshot dataSnapshot) {
-                            Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(String.class) + " is removed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MakeAssignment.this, dataSnapshot.getValue(Assignment.class) + " is removed", Toast.LENGTH_SHORT).show();
                         }
 
                         @Override

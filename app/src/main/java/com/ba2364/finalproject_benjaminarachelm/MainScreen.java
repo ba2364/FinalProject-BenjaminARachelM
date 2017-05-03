@@ -16,9 +16,9 @@ public class MainScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AssignmentAdapter assignmentAdapter;
-    private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference("assignment");
+    private FirebaseAuth auth = FirebaseAuth.getInstance(); // moved this up a line to be above Database Reference
+    private DatabaseReference assignmentRef = FirebaseDatabase.getInstance().getReference(auth.getCurrentUser().getUid() + "/assignment"); // replaced ("assignment")
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener authListener;
 
 

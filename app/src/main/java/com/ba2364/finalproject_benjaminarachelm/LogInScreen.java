@@ -1,5 +1,6 @@
 package com.ba2364.finalproject_benjaminarachelm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,8 @@ public class LogInScreen extends AppCompatActivity {
     private EditText usernameEnter;
     private EditText pwordEnter;
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth; // do we need = FirebaseAuth.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class LogInScreen extends AppCompatActivity {
         usernameEnter = (EditText) findViewById(R.id.usernameEnter);
         pwordEnter = (EditText) findViewById(R.id.pwordEnter);
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance(); // oh, its here, i dont know if it matters
     }
 
     public void logIn(View view) {
@@ -43,6 +45,7 @@ public class LogInScreen extends AppCompatActivity {
                         } else {
                             Toast.makeText(LogInScreen.this, task.getResult().getUser().getEmail() + " log-in successful",
                                     Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LogInScreen.this, SplashActivity.class));
                             finish();
                         }
 
@@ -63,6 +66,7 @@ public class LogInScreen extends AppCompatActivity {
                         } else {
                             Toast.makeText(LogInScreen.this, task.getResult().getUser().getEmail() + " sign-up successful",
                                     Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LogInScreen.this, SplashActivity.class));
                             finish();
                         }
 

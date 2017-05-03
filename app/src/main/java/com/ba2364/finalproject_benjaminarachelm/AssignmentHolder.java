@@ -7,7 +7,6 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class AssignmentHolder extends RecyclerView.ViewHolder {
 
@@ -18,6 +17,7 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
     private TextView doneText;
     private Context context;
 
+    // add image view here for pictures
     public AssignmentHolder(View itemView) {
         super(itemView);
         cardView = (CardView) itemView.findViewById(R.id.card_view);
@@ -25,7 +25,7 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
         topicNameText = (TextView) itemView.findViewById(R.id.assignment_card_name);
         dueDateText = (TextView) itemView.findViewById(R.id.duedate_card_name);
         doneText = (TextView) itemView.findViewById(R.id.done_card_name);
-
+        // assign image view
         this.context = itemView.getContext();
     }
 
@@ -41,6 +41,9 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
             doneText.setTextColor(ContextCompat.getColor(context, R.color.notDoneYetColor));
             doneText.setText(R.string.isNotDone);
         }
+
+        // switch case here and that sets the image based on the name of the assignment
+        // need a default image
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
