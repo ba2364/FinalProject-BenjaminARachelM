@@ -43,7 +43,7 @@ public class LogInScreen extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(LogInScreen.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LogInScreen.this, task.getResult().getUser().getEmail() + " log-in successful",
+                            Toast.makeText(LogInScreen.this, R.string.login,
                                     Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LogInScreen.this, SplashActivity.class));
                             finish();
@@ -62,10 +62,10 @@ public class LogInScreen extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(LogInScreen.this, "Password is not long enough",
+                            Toast.makeText(LogInScreen.this, R.string.reminder,
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LogInScreen.this, task.getResult().getUser().getEmail() + " sign-up successful",
+                            Toast.makeText(LogInScreen.this, R.string.success,
                                     Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LogInScreen.this, SplashActivity.class));
                             finish();

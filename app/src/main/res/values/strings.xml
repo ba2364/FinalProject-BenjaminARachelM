@@ -20,4 +20,6 @@
     <string name="enterSubject">Enter Subject (ex. Science)</string>
     <string name="enterAssign">Enter Assignment</string>
     <string name="reminder">Password must be 6 characters or more</string>
+    <string name="success">Sign-up successful</string>
+    <string name="login">Log-in successful</string>
 </resources>

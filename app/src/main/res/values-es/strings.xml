@@ -20,4 +20,7 @@
     <string name="welcome">¡Bienvenido a Ayudante de Tareas!</string>
     <string name="enterAssign">Agregar Asignación</string>
     <string name="enterSubject">Agregar El Tema</string>
+    <string name="reminder">La contraseña debe tener 6 caracteres o más</string>
+    <string name="login">Inicio de sesión correcto</string>
+    <string name="success">Registro correcto</string>
 </resources>
