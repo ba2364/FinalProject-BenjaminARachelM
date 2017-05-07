@@ -45,22 +45,25 @@ public class AssignmentHolder extends RecyclerView.ViewHolder {
 
         switch (assignment.topic.toLowerCase()) {
             case "science":
-                assignmentImage.setImageResource(R.drawable.science_icon);
+                assignmentImage.setImageResource(R.drawable.science_icon_2);
                 break;
             case "english":
-                assignmentImage.setImageResource(R.drawable.english_icon);
+                assignmentImage.setImageResource(R.drawable.english_icon_2);
                 break;
             case "math":
-                assignmentImage.setImageResource(R.drawable.math_icon);
+                assignmentImage.setImageResource(R.drawable.math_icon_2);
                 break;
             case "american history":
-                assignmentImage.setImageResource(R.drawable.americanhistory_icon);
+                assignmentImage.setImageResource(R.drawable.american_history_icon_2);
+                break;
+            case "world history":
+                assignmentImage.setImageResource(R.drawable.world_history_icon_2);
                 break;
             case "programming":
-                assignmentImage.setImageResource(R.drawable.programming);
+                assignmentImage.setImageResource(R.drawable.programming_icon_2);
                 break;
             default:
-                assignmentImage.setImageResource(R.drawable.specialassignment_icon);
+                assignmentImage.setImageResource(R.drawable.special_assignment_icon_2);
                 break;
         }
 
