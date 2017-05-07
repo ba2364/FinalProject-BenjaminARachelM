@@ -14,7 +14,7 @@ public class Assignment implements Serializable {
     public int dateYear;
 
     public Assignment() {
-    } 
+    }
 
     public Assignment(String id, String topic, String yourHomework, Date date, int dateDay, int dateMonth, int dateYear, boolean done) {
         this.id = id;

@@ -47,10 +47,8 @@ public class ImageUpload extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    // Compress and then display the image
     private void decodeUri(Uri uri) throws FileNotFoundException {
 
-        // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
 
         bmOptions.inJustDecodeBounds = true;
@@ -58,14 +56,11 @@ public class ImageUpload extends AppCompatActivity {
         int photoW = bmOptions.outWidth;
         int photoH = bmOptions.outHeight;
 
-        // Determine how much to scale down the image so it's not bigger than 500 x 500 pixels
         int scaleFactor = (int) Math.ceil(Math.min(photoW / 500, photoH / 500));
 
-        // Decode the image file into a Bitmap sized to fill the View
         bmOptions.inJustDecodeBounds = false;
         bmOptions.inSampleSize = scaleFactor;
 
-        // Create the compressed bitmap and load it to the imageView
         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri), null, bmOptions);
         image.setImageBitmap(bitmap);
     }

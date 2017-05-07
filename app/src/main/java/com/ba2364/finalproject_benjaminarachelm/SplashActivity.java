@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
                 if (user == null)
                     startActivity(new Intent(SplashActivity.this, LogInScreen.class));
                 else
-                    startActivity(new Intent(SplashActivity.this, MainScreen.class)); //Why this line?
+                    startActivity(new Intent(SplashActivity.this, MainScreen.class));
                 finish();
             }
         };

@@ -62,7 +62,8 @@ public class LogInScreen extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(LogInScreen.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LogInScreen.this, "Password is not long enough",
+                                    Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LogInScreen.this, task.getResult().getUser().getEmail() + " sign-up successful",
                                     Toast.LENGTH_SHORT).show();
